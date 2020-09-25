@@ -1,5 +1,7 @@
 import java.util.Random;
 
+//Usecase 7 Two Players Game
+
 public class TwoPlayers {
 	// Constant Variables
 		final static int Max_Count_Board = 100;
