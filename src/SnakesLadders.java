@@ -31,7 +31,9 @@ public class SnakesLadders {
 		int dice_number;
 
 		int chance;
-		while (currentPosition != 100) {
+		
+		///Usecase 4 and 5
+		while (currentPosition != 100) {      
 			// PLayer rolls the die then checks the option
 			dice_number = rollDice();
 			System.out.println("Dice value is :" + dice_number);
@@ -42,6 +44,7 @@ public class SnakesLadders {
 			case 0:
 				break;
 			case 1:
+				//Usecase 5
 				currentPosition = currentPosition + dice_number;
 				if (currentPosition > 100) {
 					System.out.println("PLayer position went above 100!!");
@@ -50,6 +53,7 @@ public class SnakesLadders {
 
 				break;
 			case 2:
+//				Use Case 4
 				currentPosition -= dice_number;
 				if (currentPosition < 0) {
 					System.out.println("PLayer position went below 0!!");
@@ -62,7 +66,8 @@ public class SnakesLadders {
 
 			System.out.println("Current Position is: " + currentPosition);
 		}
-
+		
+		//UseCase number 6
 		System.out.println("Dice was rolled " + noOfRolls + " times!!");
 
 	}
