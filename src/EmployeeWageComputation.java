@@ -152,7 +152,8 @@ public class EmployeeWageComputation {
 			uc5(); // Using FOr loop for monthly computation
 			break;
 		case 6:
-			uc6(); // Using WHile loop for by providing target
+			uc6(); // Using WHile loop for by providing target 
+//			Also includes the Usecase 7 wherein the code is refactored
 			break;
 		case 7:
 			flag = false;
