@@ -67,16 +67,11 @@ public class SnakesLadders {
 
 	}
 
-	public static void twoPlayer() {
-
-	}
 
 	public static void main(String args[]) {
 		System.out.println("Snakes and ladders");
 //		gamePlay();
 		useCases1to6();
-
-		twoPlayer();
 	}
 
 }
