@@ -1,3 +1,5 @@
+//Address Book USECASE 6
+
 package addressbook;
 
 public class ContactDetails {
@@ -61,8 +63,8 @@ public class ContactDetails {
 	
 	@Override
 	public String toString() {
-		return "ID: "+ this.id+ "\nFirstName: "+ this.firstName+ "\n Lastname: "+this.lastName+ "\n Address: "+this.address+"\n City: "+this.city+"\n State: "+this.state+
-				"\n Zip: "+this.zip+"\n Phone Number: "+this.phone_no+"\n Email: "+this.email;
+		return "\tFirstName: "+ this.firstName+ "\t Lastname: "+this.lastName+ "\t Address: "+this.address+"\t City: "+this.city+"\t State: "+this.state+
+				"\t Zip: "+this.zip+"\t Phone Number: "+this.phone_no+"\t Email: "+this.email;
 	}
 	
 }
