@@ -11,7 +11,7 @@ public class AddressContactUC1to5 {
 
 	static Scanner sc = new Scanner(System.in);
 
-	public static ContactDetails addContact(Map<String, Object> contacts) {
+	public static ContactDetails addContact() {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		ContactDetails contact = new ContactDetails();
@@ -39,19 +39,17 @@ public class AddressContactUC1to5 {
 		return contact;
 	}
 
-	public static void editContact(Map<String, Object> contacts) {
+	public static void editContact() {
 
 		String input = "";
 		System.out.println("Enter the firstName:");
 		input += sc.next().toLowerCase().trim();
 		System.out.println("Enter the lastName:");
 		input += sc.next().toLowerCase().trim();
-		System.out.println("Enter the PhoneNumber:");
-		input += sc.next().toLowerCase().trim();
 		// Check if the key exists if so take the whole input from user all-over
 		if (contacts.containsKey(input)) {
-			ContactDetails newContact = addContact(contacts);
-			String comparingString = newContact.getFirstName().toLowerCase() + newContact.getLastName().toLowerCase()+ newContact.getPhone_no();
+			ContactDetails newContact = addContact();
+			String comparingString = newContact.getFirstName().toLowerCase() + newContact.getLastName().toLowerCase();
 
 			if (contacts.containsKey(comparingString)) {
 				contacts.put(comparingString, newContact);
@@ -65,14 +63,12 @@ public class AddressContactUC1to5 {
 		System.out.println();
 	}
 
-	public static void deleteContact(Map<String, Object> contacts) {
+	public static void deleteContact() {
 //		String input = "";
 		System.out.println("Enter the firstName:");
 		String input = sc.next().toLowerCase();
 		System.out.println("Enter the lastName:");
 		input += sc.next().toLowerCase();
-		System.out.println("Enter the Phone number:");
-		input += sc.next();
 		// id key input exists then remove it from the Map
 		if (contacts.containsKey(input)) {
 			contacts.remove(input);
@@ -82,15 +78,14 @@ public class AddressContactUC1to5 {
 		System.out.println();
 	}
 
-	public static void bulkAddContacts(Map<String, Object> contacts) {
+	public static void bulkAddContacts() {
 		System.out.println("Enter number of Contacts to insert");
 		int count = sc.nextInt();
 		if (count > 0) {
 			for (int i = 0; i < count; i++) {
 				System.out.println("Enter the contact details for person no. : " + (i + 1));
-				ContactDetails contact = addContact(contacts);
-				contacts.put(contact.getFirstName().toLowerCase() + contact.getLastName().toLowerCase()
-						+ contact.getPhone_no(), contact);
+				ContactDetails contact = addContact();
+				contacts.put(contact.getFirstName().toLowerCase() + contact.getLastName().toLowerCase(), contact);
 			}
 			System.out.println("Successfully Added " + count + " Contacts");
 		}
@@ -118,22 +113,25 @@ public class AddressContactUC1to5 {
 			switch (inpOption) {
 			case 1:
 				// Adding Details
-				ContactDetails contact = addContact(contacts);
-				contacts.put(contact.getFirstName().toLowerCase() + contact.getLastName().toLowerCase() + contact.getPhone_no(), contact);
+				ContactDetails contact = addContact();
+				contacts.put(contact.getFirstName().toLowerCase() + contact.getLastName().toLowerCase(), contact);
 				System.out.println("SuccessFully Added");
 				break;
 			case 2:
 				// Edit
-				editContact(contacts);
+				editContact();
 				break;
 			case 3:
 				// Delete a contact
-				deleteContact(contacts);
+				deleteContact();
 				break;
 			case 4:
 				// Bulk Contacts
-				bulkAddContacts(contacts);
+				bulkAddContacts();
 				break;
+			case 5:
+				//See the AddressBooks
+				
 			default:
 				break;
 			}
@@ -141,7 +139,7 @@ public class AddressContactUC1to5 {
 			System.out.println(contacts.toString());
 		
 		}
-		System.out.println(contacts.toString());
+//		System.out.println(contacts.toString());
 		// Print the addressBook
 	}
 	

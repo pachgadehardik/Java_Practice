@@ -3,5 +3,6 @@ package employeewagemultiple;
 public interface CompanyEmployeeInterface{
 	public void computeEmpWage();
 	public void addCompanyEmpData(String companyName, int Emp_Rate_per_hr, int Number_of_Working_Days, int Max_Working_Hrs);
-	public void computeEmpWage(CompanyEmployeeData companyEmployeeData);
+	public int computeEmpWage(CompanyEmployeeData companyEmployeeData);
+	public int getTotalWage(String companyName);
 }

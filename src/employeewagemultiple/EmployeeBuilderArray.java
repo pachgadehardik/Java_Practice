@@ -1,6 +1,8 @@
 package employeewagemultiple;
 import java.util.ArrayList;
 
+
+//Includes till USECASES 12 Consolidated 
 public class EmployeeBuilderArray implements CompanyEmployeeInterface{
 	//Constants
 	final static int Is_Full_Time = 1;
@@ -32,7 +34,7 @@ public class EmployeeBuilderArray implements CompanyEmployeeInterface{
 	
 	//Computing the total Wage
 	@Override
-	public void computeEmpWage(CompanyEmployeeData companyEmployeeData) {
+	public int computeEmpWage(CompanyEmployeeData companyEmployeeData) {
 		int empHrs = 0, totalEmpHrs = 0, totalDays = 0;
 		while (totalEmpHrs <= companyEmployeeData.Max_Working_Hrs && totalDays < companyEmployeeData.Number_of_Working_Days) {
 
@@ -53,6 +55,7 @@ public class EmployeeBuilderArray implements CompanyEmployeeInterface{
 		}
 		int totalEmpWage = totalEmpHrs * companyEmployeeData.Emp_Rate_per_hr;
 		System.out.println("Total Employee Wage for the company: "+companyEmployeeData.companyName+" is: " + totalEmpWage);
+		return totalEmpWage;
 		
 	}
 	
@@ -65,6 +68,18 @@ public class EmployeeBuilderArray implements CompanyEmployeeInterface{
 		obb.addCompanyEmpData("JioMart",10,20,10);
 		obb.addCompanyEmpData("Croma", 25, 25, 15);
 		obb.computeEmpWage();
+	}
+
+////	@Override
+//	public int computeEmpWage(CompanyEmployeeData companyEmployeeData) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+
+	@Override
+	public int getTotalWage(String companyName) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	
