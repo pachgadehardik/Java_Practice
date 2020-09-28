@@ -1,7 +1,7 @@
 package regexvalidation;
 
 public class UserDetails {
-	public String fName;
+	private String fName;
 	private String lName;
 	private String emailID;
 	private String phoneNum;
