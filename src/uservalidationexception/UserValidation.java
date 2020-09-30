@@ -1,18 +1,18 @@
-package uservalidationtest;
+package uservalidationexception;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import regexvalidation.*;
-//import uservalidationtest.UserDetails;
+import regexvalidation.UserDetails;
 
-public class RegexValidator {
+public class UserValidation {
 
 	final static String uc1 = "^[A-Z]{1}[A-Za-z]{2,}"; // USECASE 1 FirstNAme
 	final static String uc2 = "^[A-Z]{1}[A-Za-z]{2,}"; // USECASE 2 LASTNAME
 
-//	final static String uc3 = "^[\\w]+([\\. | \\- | \\+]{1}[\\w]+)*(@){1}[a-zA-Z]+\\.[a-zA-Z]{2,3}?(\\.[A-Za-z]{2,3})$"; // USECASE 3// EMAILID
-	final static String uc3 = "^[\\w]+([\\. | \\- | \\_]{1}[A-Za-z0-9]+)*(@){1}[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[A-Za-z]{2,})?$";
+	final static String uc3 = "^[\\w]+([\\. | \\- | \\+]{1}[\\w]+)*(@){1}[a-zA-Z]+\\.[a-zA-Z]{2,3}?(\\.[A-Za-z]{2,3})$"; // USECASE
+																															// 3
+																															// EMAILID
 	final static String uc4 = "^[0-9]{0,2}[\\s][1-9]{1}[0-9]{9}"; // USECASE4 PHONE NUMBER
 
 	final static String uc5 = "^.{8,}"; // Min length is 8
@@ -27,24 +27,25 @@ public class RegexValidator {
 		return false;
 	}
 
-	public static void userValidator(UserDetails userDetails) {
+	public void userValidator(UserDetails userDetails) throws UserValidationException{
 		if (checkRegex(uc1, userDetails.getfName()) != true)
-			System.out.println("Invalid FirstName");
+			throw new UserValidationException("Invalid FirstName");
+			
 		else
 			System.out.println("Valid FIrstName");
 
 		if (checkRegex(uc2, userDetails.getlName()) != true)
-			System.out.println("Invalid Last Name");
+			throw new UserValidationException("Invalid LastName");
 		else
 			System.out.println("Valid LastName");
 
 		if (checkRegex(uc3, userDetails.getEmailID()) != true)
-			System.out.println("Invalid EmailID");
+			throw new UserValidationException("Invalid EmailID");
 		else
 			System.out.println("Valid EmailId!!");
 
 		if (checkRegex(uc4, userDetails.getPhoneNum()) != true)
-			System.out.println("Invalid Phone Number");
+			throw new UserValidationException("Invalid PhoneNumber");
 		else
 			System.out.println("Valid Phonenumber!!");
 
@@ -55,23 +56,18 @@ public class RegexValidator {
 					if (checkRegex(uc8, pw) == true) {
 						System.out.println("Valid Password!!");
 					} else
-						System.out.println("Invalid Password: Enter only ONE SPECIAL CHAR");
+						throw new UserValidationException("Invalid Password: Enter only ONE SPECIAL CHAR");
 				} else {
-					System.out.println("INVALID PASSWORD: ENter atleast Digit");
+					throw new UserValidationException("INVALID PASSWORD: ENter atleast Digit");
 				}
 			} else {
-				System.out.println("INVALID PASSWORD: ENTER ATLEAST ONE UPPERCASE NAME");
+				throw new UserValidationException("INVALID PASSWORD: ENTER ATLEAST ONE UPPERCASE NAME");
 			}
 		} else {
-			System.out.println("INVALID PASSWORD: LENGTH SHOULD BE MORE THAN 8!!");
+			throw new UserValidationException("INVALID PASSWORD: LENGTH SHOULD BE MORE THAN 8!!");
 		}
 
 	}
-	
-	public static boolean emailValidate(String emailId) {
-		Matcher matcher = Pattern.compile(uc3).matcher(emailId);
-		return matcher.matches();		
-	}
-	
 
+	
 }

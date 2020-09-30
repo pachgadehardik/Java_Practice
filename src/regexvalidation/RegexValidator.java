@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import regexvalidation.*;
+import regexvalidation.UserDetails;
 
 public class RegexValidator {
 

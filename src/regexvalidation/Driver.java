@@ -1,7 +1,7 @@
 package regexvalidation;
 
 import java.util.Scanner;
-import regexvalidation.*;
+import regexvalidation.UserDetails;
 public class Driver {
 
 	public static void main(String args[]) {
